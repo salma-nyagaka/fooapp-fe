@@ -1,9 +1,11 @@
 import React from "react";
 import "../assets/styles/loginpage.css";
+import Navbar from "../common/navbar";
 
 const loginPage = () => {
     return (
         <div className="login">
+            <Navbar />
             <h1>Login</h1>
             <form>
                 <div class="row">
