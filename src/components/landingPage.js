@@ -15,7 +15,7 @@ const landingPage = () => {
                                 <div class="col-sm-6 col-sm-offset-3">
                                     <div class="module-header wow fadeInUp animated" >
                                         <h2 class="module-title">Menu Items</h2>
-                                        <h3 class="module-subtitle">Our most popular dished</h3>
+                                        <h3 class="module-subtitle">Our most popular dishes</h3>
                                     </div>
                                 </div>
                             </div>
