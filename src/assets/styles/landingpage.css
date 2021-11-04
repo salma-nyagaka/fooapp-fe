@@ -92,7 +92,7 @@ h5,
 h6 {
     font: 700 54px/1.2 'Crimson Text', serif;
     margin: 0 0 20px;
-    color: #000;
+    color: #666;
 }
 
 h2 {
@@ -477,7 +477,7 @@ textarea.form-control {
 
 .module-header {
     text-align: center;
-    margin: 0 0 60px;
+    margin: 0 0 40px;
 }
 
 .long-up {
@@ -1339,7 +1339,7 @@ textarea.form-control {
     h6 {
         font: 700 38px/1.2 'Crimson Text', serif;
         margin: 0 0 20px;
-        color: #000;
+        color: #666;
     }
     h2 {
         font-size: 30px;
