@@ -1,15 +1,16 @@
 import React from "react";
 import "../assets/styles/table.css";
-import Navbar from "../common/navbar";
+import SideBar from "../common/sidebar";
 
 
-const pastOrdersPage = () => {
+const AdminMenuComponent = () => {
     return (
         <div>
-            <Navbar />
+            <SideBar />
+            <article>
             <div className="previous-order-table">
                 <table>
-                    <caption>Order Summary</caption>
+                    <caption>All menu items</caption>
                     <thead>
                         <tr>
                             <th scope="col">Account</th>
@@ -34,9 +35,10 @@ const pastOrdersPage = () => {
                     </tbody>
                 </table>
             </div>
+            </article>
         </div>
     );
 }
 
 
-export default pastOrdersPage;
+export default AdminMenuComponent;
