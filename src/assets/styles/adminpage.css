@@ -1,0 +1,32 @@
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    height: 100vh;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.admin-page .h2 {
+    color: white;
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 600px) {
+    article {
+        width: 100%;
+        height: auto;
+    }
+}

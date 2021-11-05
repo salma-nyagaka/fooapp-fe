@@ -1,0 +1,28 @@
+.accept {
+    color: #FFF;
+    background: #44CC44;
+    padding: 2px 2px;
+    box-shadow: 0 4px 0 0 #2EA62E;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.accept:hover {
+    background: #6FE76F;
+    box-shadow: 0 4px 0 0 #7ED37E;
+}
+
+.deny {
+    color: #FFF;
+    background: tomato;
+    box-shadow: 0 4px 0 0 #CB4949;
+    margin: 3px;
+    margin: 3px;
+    padding: 2px 2px;
+    border-radius: 5px;
+}
+
+.deny:hover {
+    background: rgb(255, 147, 128);
+    box-shadow: 0 4px 0 0 #EF8282;
+}

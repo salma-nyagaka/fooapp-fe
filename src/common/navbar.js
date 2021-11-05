@@ -21,7 +21,7 @@ const Navbar = () => {
         
         <div class="nav-links">
           <a href="/" >Menu</a>
-          <a href="" >Past Orders</a>
+          <a href="/orders" >Past Orders</a>
           <a href="/login" >Sign In</a>
           <i class="fa fa-shopping-cart" ></i>
         </div>
