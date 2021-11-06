@@ -438,7 +438,7 @@ textarea.form-control {
 .module {
     position: relative;
     background: #fff;
-    padding: 80px 220px;
+    padding: 80px 350px;
 }
 
 .module-gray {
@@ -1088,7 +1088,7 @@ textarea.form-control {
     .module {
         position: relative;
         background: #fff;
-        padding: 80px 220px;
+        padding: 80px 350px;
     }
 }
 
@@ -1101,7 +1101,7 @@ textarea.form-control {
     .module {
         position: relative;
         background: #fff;
-        padding: 80px 220px;
+        padding: 80px 350px;
     }
 }
 
@@ -1443,4 +1443,59 @@ textarea.form-control {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.flex-container-outside {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.flex-item-left {
+    background-color: #f1f1f1;
+    padding: 10px;
+    flex: 20%;
+}
+
+.flex-item-center {
+    background-color: yellow;
+    padding-left: 15%;
+    flex: 60% 1;
+    padding-right: 20%;
+}
+
+.flex-item-center .row {
+    flex-direction: row;
+}
+
+.flex-item-right {
+    background-color: dodgerblue;
+    padding: 10px;
+    flex: 20%;
+}
+
+.flex-container table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.flex-container td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.flex-container tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.flex-container {
+    display: block !important;
+    flex-direction: column;
+    display: flex;
+    flex-direction: row;
 }

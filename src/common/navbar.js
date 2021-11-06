@@ -23,7 +23,6 @@ const Navbar = () => {
           <a href="/" >Menu</a>
           <a href="/orders" >Past Orders</a>
           <a href="/login" >Sign In</a>
-          <i class="fa fa-shopping-cart" ></i>
         </div>
       </div>
     );
