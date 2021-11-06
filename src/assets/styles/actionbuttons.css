@@ -1,0 +1,32 @@
+.update {
+    color: #FFF;
+    background: #44CC44;
+    padding: 5px 5px 5px 5px;
+    /* box-shadow: 0 1px 0 0 #2EA62E; */
+    margin: 2px;
+    /* border-radius: 5px; */
+}
+
+.update:hover {
+    color: #6FE76F;
+    border: 1px solid #6FE76F;
+    background-color: white;
+    /* box-shadow: 0 1px 0 0 #7ED37E; */
+}
+
+.delete {
+    color: #FFF;
+    background: tomato;
+    /* box-shadow: 0 4px 0 0 #CB4949; */
+    margin: 3px;
+    margin: 3px;
+    padding: 5px 5px;
+    /* border-radius: 5px; */
+}
+
+.delete:hover {
+    color: rgb(255, 147, 128);
+    border: 1px solid rgb(255, 147, 128);
+    background-color: white;
+    /* box-shadow: 0 4px 0 0 #EF8282; */
+}

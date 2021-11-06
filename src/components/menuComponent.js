@@ -23,7 +23,6 @@ const MenuComponent = () => {
         }
         const headers = {
             Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IkFETUlOIn0sImlhdCI6MTYzNjE4MzIxNCwibmJmIjoxNjM2MTgyOTE0LCJleHAiOjE2MzY3ODgwMTR9.v9RHTPRBXOrN_mGdDI3NM0z9n2CdRcWH8IdYhn-Fk-M`,
-            // 'Content-Type': "application/json",
     
           };
 
@@ -35,7 +34,6 @@ const MenuComponent = () => {
         }
         catch (error) {
             setNameError(error.response.data.error.name[0])
-            // setPriceError(error.response.data.error.price[0])
             console.log(error.response.data.error)
             setDescriptionError(error.response.data.error.description[0])
 
