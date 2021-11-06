@@ -15,16 +15,16 @@
     margin-top: 48px;
 }
 
-form {
+
+/* form {
     background: #fff;
     max-width: 360px;
     width: 100%;
     padding: 58px 44px;
-    /* border: 1px solid #ffd175ee; */
     border-radius: 4px;
     box-shadow: 0 0 5px 0 #ffaa0087;
     transition: all 0.3s ease;
-}
+} */
 
 .row {
     display: flex;

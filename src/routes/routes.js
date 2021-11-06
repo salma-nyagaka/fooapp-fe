@@ -4,7 +4,7 @@ import { Route, Switch,  BrowserRouter} from 'react-router-dom'
 import landingPage from '../components/landingPage'
 import loginPage from '../components/loginPage'
 import pastOrdersPage from '../components/pastOrdersPage'
-import adminPage from '../components/adminPage'
+import adminComponent from '../components/adminComponent'
 import MenuComponent  from '../components/menuComponent'
 import UserComponent from '../components/userComponent'
 import AllUsersComponent from '../components/allUsersComponent'
@@ -16,7 +16,7 @@ const Routes = () => (
       <Route exact path='/' component={landingPage} />
       <Route exact path='/login' component={loginPage} />
       <Route exact path='/orders' component={pastOrdersPage} />
-      <Route exact path='/admin' component={adminPage} />
+      <Route exact path='/admin' component={adminComponent} />
       <Route exact path='/menu' component={MenuComponent} />
       <Route exact path='/user' component={UserComponent} />
       <Route exact path='/users' component={AllUsersComponent} />
