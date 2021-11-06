@@ -51,7 +51,6 @@ const getUsers = async () => {
                 headers: headers
             });
             getUsers()
-            console.log(res, "resssssssssssss")
         }
         catch (error) {
             setDeleteError(error.response.data.error)
