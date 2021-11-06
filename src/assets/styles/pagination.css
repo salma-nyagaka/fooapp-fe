@@ -1,0 +1,48 @@
+.all-users nav {
+    float: unset;
+    width: unset;
+    height: 0vh;
+    background-color: #ffa900;
+    font-size: unset;
+    padding: unset;
+}
+
+.MuiPaginationItem-rounded {
+    border-radius: 1px !important;
+}
+
+.MuiPaginationItem-outlined {
+    border: 1px solid #ffa900 !important;
+}
+
+.MuiPaginationItem-root {
+    color: #ffa900 !important;
+}
+
+.MuiPaginationItem-sizeLarge {
+    height: 22px !important;
+    padding: 12px 8px !important;
+    font-size: 12px !important;
+    min-width: 22px !important;
+}
+
+.MuiPaginationItem-sizeLarge .MuiPaginationItem-icon {
+    font-size: 20px !important;
+}
+
+.MuiPaginationItem-page.Mui-selected {
+    background-color: #ffa900 !important;
+    color: white !important;
+}
+
+.MuiPagination-ul {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.MuiPagination-root {
+    position: relative;
+    margin: 20px auto;
+}
