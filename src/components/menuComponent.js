@@ -1,23 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
 import "../assets/styles/userform.css";
 import SideBar from "../common/sidebar";
 
 const MenuComponent = () => {
+
+    const [nameerror, setNameError] = useState()
+    const [priceerror, setPriceError] = useState()
+    const [descriptionerror, setDescriptionError] = useState()
+    const [successResponse, setSuccessResponse] = useState()
+
+    // Create a new user...
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const { name, price, description } = event.target.elements;
+
+        const data = {
+            name: name.value,
+            price: price.value,
+            description: description.value
+        }
+        const headers = {
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IkFETUlOIn0sImlhdCI6MTYzNjE4MzIxNCwibmJmIjoxNjM2MTgyOTE0LCJleHAiOjE2MzY3ODgwMTR9.v9RHTPRBXOrN_mGdDI3NM0z9n2CdRcWH8IdYhn-Fk-M`,
+            // 'Content-Type': "application/json",
+    
+          };
+
+        try {
+            const res = await axios.post('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/', data, {
+                headers: headers
+            });
+            setSuccessResponse(res.data.message)
+        }
+        catch (error) {
+            setNameError(error.response.data.error.name[0])
+            // setPriceError(error.response.data.error.price[0])
+            console.log(error.response.data.error)
+            setDescriptionError(error.response.data.error.description[0])
+
+        }
+
+        var form = document.getElementById("form");
+        form.reset();
+    };
+    const inboxOnClick = (event) => {
+        event.preventDefault()
+        const id = event.target.id
+        var errors = document.getElementById( `${id}-errors`);
+        errors.innerHTML = ''
+        var success = document.getElementById('success-response')
+        success.innerHTML = ''
+        // errors.remove();
+
+    }
     return (
         <div>
             <SideBar/>
             <article>
             <div class="container">
                 <h1>Add a menu item</h1>
-                <label for="email"><b>Name</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" required />
-                <label for="username"><b>Price</b></label>
-                <input type="text" placeholder="Enter Username" name="username" id="username" required />
+                <form onSubmit={handleSubmit} id="form">
+                <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3>
+                <label for="name"><b>Name</b></label>
+                <h3 class="errors" id="name-errors">{nameerror ? nameerror : ''}</h3>
+                <input type="text" placeholder="Enter Name" name="name" id="name" onClick={inboxOnClick}  required />
+                <label for="price"><b>Price</b></label>
+                <h3 class="errors" id="price-errors">{priceerror ? priceerror : ''}</h3>
+                <input type="number" placeholder="Enter Price" name="price" id="price" onClick={inboxOnClick}  required />
                 <label for="description"><b>Description</b></label>
-                <textarea id="description" name="description" rows="4" cols="50">
+                <h3 class="errors" id="description-errors">{descriptionerror ? descriptionerror : ''}</h3>
+                <textarea id="description" name="description" rows="4" cols="50" onClick={inboxOnClick}  required >
                 </textarea>  <hr />
 
                 <button type="submit" class="registerbtn">Add menu item</button>
+            </form>
             </div>
             </article>
         </div>
