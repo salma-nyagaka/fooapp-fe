@@ -1,0 +1,14 @@
+.errors {
+    color: #cc0000;
+    font-size: 16px;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.success-response {
+    color: #4BB543;
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+}

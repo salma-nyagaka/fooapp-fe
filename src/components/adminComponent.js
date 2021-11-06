@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "../assets/styles/adminpage.css";
 import SideBar from "../common/sidebar";
-import UserComponent from "../components/userComponent";
-import MenuComponent from "../components/menuComponent";
+import UserComponent from "./userComponent";
+import MenuComponent from "./menuComponent";
 import AllUsersComponent from "./allUsersComponent";
 
-const adminPage = () => {
+const adminComponent = () => {
   const url = window.location.href.split("/").pop()
   return (
 <div class='admin-page'>
@@ -27,4 +27,4 @@ const adminPage = () => {
 }
 
 
-export default adminPage;
+export default adminComponent;
