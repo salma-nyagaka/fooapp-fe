@@ -20,7 +20,7 @@ const AdminMenuComponent = () => {
 
 ;
 
-const getUsers = async () => {
+const getMenuItems = async () => {
     try {
         const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items', {
             headers: headers
@@ -34,9 +34,9 @@ const getUsers = async () => {
         console.log(error);
     }
 };
-    // Fetch all users...
+    // Fetch all menu items...
     useEffect(() => {
-        getUsers();
+        getMenuItems();
     }, []);
 
     // Delete a user
@@ -47,7 +47,7 @@ const getUsers = async () => {
             const res = await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items/${id}`, {
                 headers: headers
             });
-            getUsers()
+            getMenuItems()
             console.log(res, "resssssssssssss")
         }
         catch (error) {
@@ -56,6 +56,7 @@ const getUsers = async () => {
 
 
     };
+    
   // Handle change...
   const PER_PAGE = 10;
   const count = Math.ceil(dataResponse.length / PER_PAGE);

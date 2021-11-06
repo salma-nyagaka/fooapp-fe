@@ -1,7 +1,7 @@
  
 import * as React from 'react'
 import { Route, Switch,  BrowserRouter} from 'react-router-dom'
-import landingPage from '../components/landingPage'
+import LandingComponent from '../components/landingComponent'
 import loginPage from '../components/loginPage'
 import pastOrdersPage from '../components/pastOrdersPage'
 import adminComponent from '../components/adminComponent'
@@ -13,7 +13,7 @@ import AdminMenuComponent from '../components/viewMenusComponent.js'
 const Routes = () => (
     <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={landingPage} />
+      <Route exact path='/' component={LandingComponent} />
       <Route exact path='/login' component={loginPage} />
       <Route exact path='/orders' component={pastOrdersPage} />
       <Route exact path='/admin' component={adminComponent} />
