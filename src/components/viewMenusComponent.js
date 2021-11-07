@@ -42,7 +42,6 @@ const getMenuItems = async () => {
     // Delete a user
     const onDelete = async (id) => {
         console.log(id, "id")
-
         try {
             const res = await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items/${id}`, {
                 headers: headers
@@ -53,8 +52,6 @@ const getMenuItems = async () => {
         catch (error) {
             setDeleteError(error.response.data.error)
         }
-
-
     };
     
   // Handle change...
