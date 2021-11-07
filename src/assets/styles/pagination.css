@@ -2,7 +2,7 @@
     float: unset;
     width: unset;
     height: 0vh;
-    background-color: #ffa900;
+    background-color: #bd081c;
     font-size: unset;
     padding: unset;
 }
@@ -11,7 +11,7 @@
     float: unset;
     width: unset;
     height: 0vh;
-    background-color: #ffa900;
+    background-color: #bd081c;
     font-size: unset;
     padding: unset;
 }
@@ -21,11 +21,11 @@
 }
 
 .MuiPaginationItem-outlined {
-    border: 1px solid #ffa900 !important;
+    border: 1px solid #bd081c !important;
 }
 
 .MuiPaginationItem-root {
-    color: #ffa900 !important;
+    color: #bd081c !important;
 }
 
 .MuiPaginationItem-sizeLarge {
@@ -40,7 +40,7 @@
 }
 
 .MuiPaginationItem-page.Mui-selected {
-    background-color: #ffa900 !important;
+    background-color: #bd081c !important;
     color: white !important;
 }
 

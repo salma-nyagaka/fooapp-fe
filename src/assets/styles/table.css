@@ -3,7 +3,7 @@ a {
 }
 
 table {
-    border: 1px solid #ffa900;
+    border: 2px solid rgb(226, 226, 226);
     border-radius: 7px;
     border-collapse: collapse;
     margin: 0;
@@ -21,7 +21,7 @@ table caption {
 
 table tr {
     background-color: white;
-    border: 1px solid #ffa900;
+    border: 2px solid rgb(226, 226, 226);
     padding: 10px 15px;
 }
 
@@ -31,6 +31,8 @@ table td {
     text-align: center;
     font-size: 12px;
     color: #657786;
+    cursor: pointer;
+    border: 2px solid rgb(226, 226, 226);
 }
 
 table th {
@@ -55,20 +57,20 @@ table th {
     table thead {
         border: none;
         clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
+        height: 2px;
+        margin: -2px;
         overflow: hidden;
         padding: 0;
         position: absolute;
-        width: 1px;
+        width: 2px;
     }
     table tr {
-        border-bottom: 3px solid #ddd;
+        border-bottom: 3px solid rgb(226, 226, 226);
         display: block;
         margin-bottom: .625em;
     }
     table td {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 2px solid rgb(226, 226, 226);
         display: block;
         font-size: .8em;
         text-align: right;
@@ -87,4 +89,10 @@ table th {
 .previous-order-table {
     padding-left: 100px;
     padding-right: 100px;
+}
+
+.login-req {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
 }

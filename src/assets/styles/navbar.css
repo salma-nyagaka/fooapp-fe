@@ -10,7 +10,7 @@ body {
 .nav {
     height: 50px;
     width: 100%;
-    background-color: #ffa900;
+    background-color: #bd081c;
     position: relative;
     padding-left: 4%;
     padding-right: 4%;
@@ -67,7 +67,7 @@ body {
     }
     .nav>.nav-btn>label:hover,
     .nav #nav-check:checked~.nav-btn>label {
-        background-color: #ffa900;
+        background-color: #bd081c;
     }
     .nav>.nav-btn>label>span {
         display: block;

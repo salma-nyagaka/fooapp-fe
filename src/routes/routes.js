@@ -14,7 +14,6 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
 const user = cookies.get('role')
-console.log(user == 'FOOD_ATTENDANT', "userrrrrrrrrr")
 const Routes = () => (
   <BrowserRouter>
     <Switch>
@@ -44,10 +43,7 @@ const Routes = () => (
         <Route exact path='/admin/menu' component={AdminMenuComponent} />) : (
         <Redirect to="/" />
       )}
-      {user === "ADMIN" ? (
-        <Route exact path='/admin' component={adminComponent} />) : (
-        <Redirect to="/" />
-      )}
+  
 
 
     </Switch>

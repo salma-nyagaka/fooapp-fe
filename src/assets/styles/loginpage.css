@@ -38,13 +38,13 @@
 
 .row label {
     font-size: 14px;
-    color: #ffa900;
+    color: #bd081c;
 }
 
 .row input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ffa900;
+    border: 1px solid #bd081c;
     border-radius: 4px;
     font-size: 12px;
     transition: all 0.2s ease-out;
@@ -63,7 +63,7 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 18px;
-    background: #ffa900;
+    background: #bd081c;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -74,7 +74,8 @@ button {
 }
 
 button:hover {
-    background: #de7f26;
+    background: #bd081c;
+    opacity: 5;
 }
 
 @media(max-width: 458px) {
@@ -92,5 +93,5 @@ button:hover {
 }
 
 .login h1 {
-    color: #ffa900;
+    color: #bd081c;
 }

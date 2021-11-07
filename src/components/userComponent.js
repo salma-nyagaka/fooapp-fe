@@ -16,7 +16,7 @@ const UserComponent = () => {
     // Create a new user...
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { email, username, password, role } = event.target.elements;
+        const { email, username } = event.target.elements;
         const user_role = document.getElementById("role").value
         const user_password = document.getElementById("psw").value
 
@@ -50,7 +50,7 @@ const UserComponent = () => {
     const inboxOnClick = (event) => {
         event.preventDefault()
         const id = event.target.id
-        var errors = document.getElementById( `${id}-errors`);
+        var errors = document.getElementById(`${id}-errors`);
         errors.innerHTML = ''
         var success = document.getElementById('success-response')
         success.innerHTML = ''

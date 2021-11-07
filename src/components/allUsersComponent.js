@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SetStateAction } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
 import Cookies from 'universal-cookie';
@@ -11,11 +11,8 @@ import SideBar from "../common/sidebar";
 
 
 const AllUsersComponent = () => {
-    const [successResponse, setSuccessResponse] = useState()
     const [dataResponse, setDataResponse] = useState([])
-    const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
-    const [deleteError, setDeleteError] = useState()
     const cookies = new Cookies();
     const token = cookies.get('token')
     const headers = {
@@ -23,49 +20,45 @@ const AllUsersComponent = () => {
     };
 
 
-const getUsers = async () => {
-    try {
-        const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details', {
-            headers: headers
-        });
-        setDataResponse(res.data.data)
-        setSuccessResponse(res.data.message)
+    const getUsers = async () => {
+        try {
+            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details', {
+                headers: headers
+            });
+            setDataResponse(res.data.data)
 
 
-    } catch (error) {
-        setDataResponse([])
-        console.log(error);
-    }
-};
+        } catch (error) {
+            setDataResponse([])
+        }
+    };
     // Fetch all users...
     useEffect(() => {
         getUsers();
-    }, []);
+    });
 
     // Delete a user
     const onDelete = async (id) => {
-        console.log(id, "id")
-
         try {
-            const res = await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details/${id}`, {
+            await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details/${id}`, {
                 headers: headers
             });
             getUsers()
         }
         catch (error) {
-            setDeleteError(error.response.data.error)
+            console.log(error)
         }
 
 
     };
-  // Handle change...
-  const PER_PAGE = 10;
-  const count = Math.ceil(dataResponse.length / PER_PAGE);
-  const items = usePagination(dataResponse, PER_PAGE);
-  const handleChange = (_e, p) => {
-    setPage(p);
-    items.jump(p);
-  };
+    // Handle change...
+    const PER_PAGE = 10;
+    const count = Math.ceil(dataResponse.length / PER_PAGE);
+    const items = usePagination(dataResponse, PER_PAGE);
+    const handleChange = (_e, p) => {
+        setPage(p);
+        items.jump(p);
+    };
 
 
     return (
@@ -88,30 +81,30 @@ const getUsers = async () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {items.currentData().map((data)  =>{
-                                return(
-                                <tr>
-                                    <td data-label="USERNAME">{data.username}</td>
-                                    <td data-label="EMAIL">{data.email}</td>
-                                    <td data-label="ROLE">{data.role}</td>
-                                    <td><a href="#" class="delete">DELETE<span class="fa fa-check" onClick={() => onDelete(data.id)}></span></a>
-                                {/* <a href="#" class="update">UPDATE <span class="fa fa-close"></span></a> */}
-                                </td>
-                                </tr>)
-                               })   
+                            {items.currentData().map((data) => {
+                                return (
+                                    <tr>
+                                        <td data-label="USERNAME">{data.username}</td>
+                                        <td data-label="EMAIL">{data.email}</td>
+                                        <td data-label="ROLE">{data.role}</td>
+                                        <td><a href="#" class="delete" onClick={() => onDelete(data.id)}>DELETE<span class="fa fa-close"></span></a>
+                                            {/* <a href="#" class="update">UPDATE <span class="fa fa-close"></span></a> */}
+                                        </td>
+                                    </tr>)
+                            })
 
                             }
 
                         </tbody>
                     </table>
                     <Pagination
-                      count={count}
-                      size="large"
-                      page={page}
-                      variant="outlined"
-                      shape="rounded"
-                      onChange={handleChange}
-                      className="pagination-button"
+                        count={count}
+                        size="large"
+                        page={page}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={handleChange}
+                        className="pagination-button"
                     />
                 </div>
             </article>
