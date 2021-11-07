@@ -1,12 +1,12 @@
 import React, { useEffect, useState, SetStateAction } from "react";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
-import usePagination from "../common/pagination";
+import Cookies from 'universal-cookie';
 
+import usePagination from "../common/pagination";
 import "../assets/styles/table.css";
 import "../assets/styles/pagination.css";
 import "../assets/styles/actionbuttons.css";
-
 import SideBar from "../common/sidebar";
 
 
@@ -16,12 +16,12 @@ const AllUsersComponent = () => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
     const [deleteError, setDeleteError] = useState()
-
+    const cookies = new Cookies();
+    const token = cookies.get('token')
     const headers = {
-        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IkFETUlOIn0sImlhdCI6MTYzNjE5MzgwMiwibmJmIjoxNjM2MTkzNTAyLCJleHAiOjE2MzY3OTg2MDJ9.HT69RxFtv3gpElDzjbFU0GvZRssdX7bns2mR5aex-mc`,
+        Authorization: `Bearer ${token}`,
     };
 
-;
 
 const getUsers = async () => {
     try {

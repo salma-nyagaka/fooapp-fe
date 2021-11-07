@@ -11,17 +11,9 @@ const SideBar = () => {
       <li><a href="/users"><i class="fa fa-list" aria-hidden="true"></i>
 View Users</a></li>
 <li><a href="/admin/menu"><i class="fa fa-list"></i>View Menus</a></li>
-<li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
-
+<li><a href="#" id=''><i class="fa fa-sign-out"></i>Logout</a></li>
     </ul>
   </nav>
-  {/* <a href="#about"><i class="fa fa-user"></i>Create User</a>
-  <a href="#clients"><i class="fa fa-bars"></i>Create Menu</a>
-  <a href="#services"><i class="fa fa-list" aria-hidden="true"></i>
-View Users</a>
-<a href="#clients"><i class="fa fa-list"></i>View Menus</a>
-<a href="#clients"><i class="fa fa-sign-out"></i>Logout</a> */}
-
 </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState, SetStateAction } from "react";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
 import usePagination from "../common/pagination";
+import Cookies from 'universal-cookie';
 
 import "../assets/styles/table.css";
 import "../assets/styles/pagination.css";
@@ -14,9 +15,10 @@ const OrdersComponent = () => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
     const [deleteError, setDeleteError] = useState()
-
+    const cookies = new Cookies();
+    const token = cookies.get('token')
     const headers = {
-        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MTYsImVtYWlsIjoiYWRtampiaW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJiampqYmIiLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNjM2MTk2OTUwLCJuYmYiOjE2MzYxOTY2NTAsImV4cCI6MTYzNjgwMTc1MH0._R3YzAAz-tq2DR6L8413YkVOTx2xCMF_tYK6Pjof15A`,
+        Authorization: `Bearer ${token}`,
     };
 
     const params = {
@@ -42,8 +44,8 @@ const OrdersComponent = () => {
     useEffect(() => {
         getOrders();
     }, []);
-
-
+    
+    
     // Handle change...
     const PER_PAGE = 10;
     const count = Math.ceil(dataResponse.length / PER_PAGE);
@@ -53,14 +55,13 @@ const OrdersComponent = () => {
         items.jump(p);
     };
 
-    console.log(items.currentData())
-
 
     return (
 
         <div>
             <Navbar />
             <div className="previous-order-table">
+                {token ? '' : <h3 class="success-response" id="success-response">Kindly login to view your details</h3>}
                 {/* <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3> */}
                 <table>
                     <caption>All users</caption>
@@ -81,10 +82,7 @@ const OrdersComponent = () => {
                                     <td data-label="DESCITPION">{data.order.description}</td>
 
                                 </tr>)
-                        })
-
-                        }
-
+                        })}
                     </tbody>
                 </table>
                 <Pagination
