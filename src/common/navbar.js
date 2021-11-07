@@ -1,6 +1,5 @@
 import React from "react";
 import "../assets/styles/navbar.css";
-import cart from "../assets/images/shopping_cart.svg"
 
 const Navbar = () => {
     return (

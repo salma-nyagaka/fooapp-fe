@@ -32,6 +32,7 @@ const LoginComponent = () => {
             const role = res.data.data.role
             const token = res.data.data.token
             cookies.set('token', token)
+            cookies.set('role', role)
             var signinBtn = document.getElementById("sign-in-btn");
             document.getElementById("sign-in-btn").id = 'logout-btn'
             signinBtn.innerHTML = 'LOGOUT'
@@ -39,8 +40,8 @@ const LoginComponent = () => {
                 history.push('/admin')
             else if (role == 'FOOD_ATTENDANT')
                 history.push('/attendant')  
-            else if (role == 'NORMAL_USER')
-                history.push('/')
+            // else if (role == 'NORMAL_USER')
+            //     history.push('/')
 
         } catch (error) {
             setErrors(error.response.data.error.non_field_errors)
@@ -71,7 +72,7 @@ const LoginComponent = () => {
                 <hr />
 
                 <button type="submit" class="registerbtn"
-                >Add user</button>
+                >Log In</button>
             </form>
         </div>
     );

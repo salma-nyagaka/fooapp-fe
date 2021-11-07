@@ -8,21 +8,20 @@ import AllUsersComponent from "./allUsersComponent";
 const adminComponent = () => {
   const url = window.location.href.split("/").pop()
   return (
-<div class='admin-page'>
+    <div class='admin-page'>
+      <section>
+        <SideBar />
+        <article>{
+          url == 'menu' ? <MenuComponent />
+            : url == 'admin' ? <UserComponent />
+              : url == 'users' ? <AllUsersComponent />
+                : <UserComponent />
 
-<section>
-  <SideBar/>
-  <article>{
-      url=='menu' ? <MenuComponent/>
-    : url=='admin' ? <UserComponent/>
-    : url=='users' ? <AllUsersComponent/>
-    :<UserComponent/>
-   
-  }
-  </article>
-</section>
+        }
+        </article>
+      </section>
 
-</div>
+    </div>
   );
 }
 
