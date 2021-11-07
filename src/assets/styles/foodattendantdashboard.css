@@ -1,13 +1,19 @@
 .accept {
     color: #FFF;
     background: #44CC44;
-    padding: 2px 2px;
+    padding: 3px 3px;
     margin: 3px;
-    border-radius: 5px;
 }
 
 .accept:hover {
-    background: #6FE76F;
+    color: #6FE76F;
+    border: 1px solid #6FE76F;
+    background-color: white;
+    /* box-shadow: 0 1px 0 0 #7ED37E; */
+}
+
+.accept:hover .fa {
+    content: #6FE76F;
 }
 
 .deny {
@@ -15,11 +21,11 @@
     background: tomato;
     margin: 3px;
     margin: 3px;
-    padding: 2px 2px;
-    border-radius: 5px;
+    padding: 3px 3px;
 }
 
 .deny:hover {
-    background: rgb(255, 147, 128);
-    box-shadow: 0 4px 0 0 #EF8282;
+    color: rgb(255, 147, 128);
+    border: 1px solid rgb(255, 147, 128);
+    background-color: white;
 }

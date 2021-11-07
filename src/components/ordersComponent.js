@@ -44,8 +44,8 @@ const OrdersComponent = () => {
     useEffect(() => {
         getOrders();
     }, []);
-    
-    
+
+
     // Handle change...
     const PER_PAGE = 10;
     const count = Math.ceil(dataResponse.length / PER_PAGE);
@@ -63,9 +63,9 @@ const OrdersComponent = () => {
             <div className="previous-order-table">
                 {token ? '' : <h3 class="success-response" id="success-response">Kindly login to view your details</h3>}
                 {/* <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3> */}
+                { token ? 
                 <table>
-                    <caption>All users</caption>
-
+                    <caption>Past Orders</caption>
                     <thead>
                         <tr>
                             <th scope="col">NAME</th>
@@ -84,7 +84,7 @@ const OrdersComponent = () => {
                                 </tr>)
                         })}
                     </tbody>
-                </table>
+                </table> : <h3>Kindly log in to view your past orders</h3>}
                 <Pagination
                     count={count}
                     size="large"

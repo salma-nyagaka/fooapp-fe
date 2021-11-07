@@ -44,10 +44,7 @@ const Routes = () => (
         <Route exact path='/admin/menu' component={AdminMenuComponent} />) : (
         <Redirect to="/" />
       )}
-      {user === "ADMIN" ? (
-        <Route exact path='/admin' component={adminComponent} />) : (
-        <Redirect to="/" />
-      )}
+  
 
 
     </Switch>

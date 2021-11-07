@@ -94,7 +94,7 @@ const getUsers = async () => {
                                     <td data-label="USERNAME">{data.username}</td>
                                     <td data-label="EMAIL">{data.email}</td>
                                     <td data-label="ROLE">{data.role}</td>
-                                    <td><a href="#" class="delete">DELETE<span class="fa fa-check" onClick={() => onDelete(data.id)}></span></a>
+                                    <td><a href="#" class="delete" onClick={() => onDelete(data.id)}>DELETE<span class="fa fa-close"></span></a>
                                 {/* <a href="#" class="update">UPDATE <span class="fa fa-close"></span></a> */}
                                 </td>
                                 </tr>)
