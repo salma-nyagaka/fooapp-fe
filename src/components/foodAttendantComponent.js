@@ -4,7 +4,7 @@ import "../assets/styles/table.css";
 
 import Navbar from "../common/navbar";
 
-const foodAttendantPage = () => {
+const FoodComponent = () => {
     return (
         <div className="login">
             <Navbar />
@@ -65,4 +65,4 @@ const foodAttendantPage = () => {
 }
 
 
-export default foodAttendantPage;
+export default FoodComponent;

@@ -2,6 +2,7 @@ import React, { useEffect, useState, SetStateAction } from "react";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
 import usePagination from "../common/pagination";
+import Cookies from 'universal-cookie';
 
 import "../assets/styles/table.css";
 import SideBar from "../common/sidebar";
@@ -13,13 +14,12 @@ const AdminMenuComponent = () => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
     const [deleteError, setDeleteError] = useState()
-
+    const cookies = new Cookies();
+    const token = cookies.get('token')
     const headers = {
-        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MTYsImVtYWlsIjoiYWRtampiaW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJiampqYmIiLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNjM2MTk1MjY3LCJuYmYiOjE2MzYxOTQ5NjcsImV4cCI6MTYzNjgwMDA2N30.-eXFz2LG2wiTcK7n_Ei5TlrW_m6UqWkml-4WvfXPA6A`,
+        Authorization: `Bearer ${token}`,
     };
-
-;
-
+    
 const getMenuItems = async () => {
     try {
         const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items', {

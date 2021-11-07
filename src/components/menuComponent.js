@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 import "../assets/styles/userform.css";
 import SideBar from "../common/sidebar";
@@ -12,7 +13,7 @@ const MenuComponent = () => {
     const [successResponse, setSuccessResponse] = useState()
 
     // Create a new user...
-    const handleSubmit = async (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         const { name, price, description } = event.target.elements;
 
@@ -21,10 +22,11 @@ const MenuComponent = () => {
             price: price.value,
             description: description.value
         }
+        const cookies = new Cookies();
+        const token = cookies.get('token')
         const headers = {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IkFETUlOIn0sImlhdCI6MTYzNjE4MzIxNCwibmJmIjoxNjM2MTgyOTE0LCJleHAiOjE2MzY3ODgwMTR9.v9RHTPRBXOrN_mGdDI3NM0z9n2CdRcWH8IdYhn-Fk-M`,
-    
-          };
+            Authorization: `Bearer ${token}`,
+        };
 
         try {
             const res = await axios.post('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/', data, {

@@ -22,7 +22,7 @@ const Navbar = () => {
         <div class="nav-links">
           <a href="/" >Menu</a>
           <a href="/orders" >Past Orders</a>
-          <a href="/login" >Sign In</a>
+          <a href="/login" id='sign-in-btn'>Sign In</a>
         </div>
       </div>
     );
