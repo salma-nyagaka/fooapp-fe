@@ -10,11 +10,8 @@ import Navbar from "../common/navbar";
 
 
 const OrdersComponent = () => {
-    const [successResponse, setSuccessResponse] = useState()
     const [dataResponse, setDataResponse] = useState([])
-    const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
-    const [deleteError, setDeleteError] = useState()
     const cookies = new Cookies();
     const token = cookies.get('token')
     const headers = {
@@ -32,12 +29,8 @@ const OrdersComponent = () => {
                 params: params
             });
             setDataResponse(res.data.data)
-            setSuccessResponse(res.data.message)
-
-
         } catch (error) {
             setDataResponse([])
-            console.log(error);
         }
     };
     // Fetch all user's orders...
@@ -61,39 +54,38 @@ const OrdersComponent = () => {
         <div>
             <Navbar />
             <div className="previous-order-table">
-                {token ? '' : <h3 class="success-response" id="success-response">Kindly login to view your details</h3>}
-                {/* <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3> */}
-                { token ? 
-                <table>
-                    <caption>Past Orders</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">NAME</th>
-                            <th scope="col">PRICE</th>
-                            <th scope="col">DESCRIPTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.currentData().map((data) => {
-                            return (
-                                <tr>
-                                    <td data-label="NAME">{data.order.name}</td>
-                                    <td data-label="PRICE">{data.order.price}</td>
-                                    <td data-label="DESCITPION">{data.order.description}</td>
+                {token ?
+                    <div><table>
+                        <caption>Past Orders</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">NAME</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">DESCRIPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.currentData().map((data) => {
+                                return (
+                                    <tr>
+                                        <td data-label="NAME">{data.order.name}</td>
+                                        <td data-label="PRICE">{data.order.price}</td>
+                                        <td data-label="DESCITPION">{data.order.description}</td>
 
-                                </tr>)
-                        })}
-                    </tbody>
-                </table> : <h3>Kindly log in to view your past orders</h3>}
-                <Pagination
-                    count={count}
-                    size="large"
-                    page={page}
-                    variant="outlined"
-                    shape="rounded"
-                    onChange={handleChange}
-                    className="pagination-button"
-                />
+                                    </tr>)
+                            })}
+                        </tbody>
+                    </table>
+                        <Pagination
+                            count={count}
+                            size="large"
+                            page={page}
+                            variant="outlined"
+                            shape="rounded"
+                            onChange={handleChange}
+                            className="pagination-button"
+                        /></div>
+                    : <h3 className="login-req">Kindly log in to view your past orders</h3>}
             </div>
         </div>
     );

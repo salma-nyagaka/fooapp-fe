@@ -9,16 +9,13 @@ import SideBar from "../common/sidebar";
 import usePagination from "../common/pagination";
 
 const FoodComponent = () => {
-    const [successResponse, setSuccessResponse] = useState()
     const [dataResponse, setDataResponse] = useState([])
     const cookies = new Cookies();
     const token = cookies.get('token')
-    const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
     const headers = {
         Authorization: `Bearer ${token}`,
     };
-    // console.log(headers, "token")
     const params = {
         'pending_orders': 'pending_orders'
     }
@@ -31,27 +28,23 @@ const FoodComponent = () => {
                 params: params
             });
             setDataResponse(res.data.data)
-            setSuccessResponse(res.data.message)
-
 
         } catch (error) {
             setDataResponse([])
-            console.log(error);
         }
     };
     // Fetch all orders...
     useEffect(() => {
         getOrders();
-    }, []);
+    });
 
     // Update order status
     const updateOrderStatus = async (id, status) => {
-        console.log(headers, "Lll")
         const params = {
             status: status
         }
         try {
-            const res = await axios.put(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/${id}`, {}, {
+            await axios.put(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/${id}`, {}, {
                 headers: headers,
                 params: params
             });
@@ -60,7 +53,6 @@ const FoodComponent = () => {
 
         } catch (error) {
             setDataResponse([])
-            console.log(error);
         }
     };
 

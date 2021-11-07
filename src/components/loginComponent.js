@@ -10,7 +10,6 @@ import Cookies from 'universal-cookie';
 const LoginComponent = () => {
     const [error, setErrors] = useState()
     const [successResponse, setSuccessResponse] = useState()
-    const [data, setData] = useState()
     const cookies = new Cookies();
     let history = useHistory();
 
@@ -18,7 +17,6 @@ const LoginComponent = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { email, psw } = event.target.elements;
-        console.log(event.target.elements.email)
 
         const data = {
             email: email.value,
@@ -28,7 +26,6 @@ const LoginComponent = () => {
         try {
             const res = await axios.post('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/login', data);
             setSuccessResponse(res.data.message)
-            setData(res.data.data)
             const role = res.data.data.role
             const token = res.data.data.token
             cookies.set('token', token)
@@ -36,17 +33,18 @@ const LoginComponent = () => {
             var signinBtn = document.getElementById("sign-in-btn");
             document.getElementById("sign-in-btn").id = 'logout-btn'
             signinBtn.innerHTML = 'LOGOUT'
-            if (role == 'ADMIN')
+            if (role === 'ADMIN')
                 history.push('/admin')
-            else if (role == 'FOOD_ATTENDANT')
-                history.push('/attendant')  
-            // else if (role == 'NORMAL_USER')
-            //     history.push('/')
+            else if (role === 'FOOD_ATTENDANT')
+                history.push('/attendant')
+            else if (role === 'NORMAL_USER')
+                history.push('/')
 
         } catch (error) {
             setErrors(error.response.data.error.non_field_errors)
 
         }
+
     };
 
     const inboxOnClick = (event) => {

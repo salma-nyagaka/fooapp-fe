@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../assets/styles/adminpage.css";
 import SideBar from "../common/sidebar";
 import UserComponent from "./userComponent";
@@ -12,9 +12,9 @@ const adminComponent = () => {
       <section>
         <SideBar />
         <article>{
-          url == 'menu' ? <MenuComponent />
-            : url == 'admin' ? <UserComponent />
-              : url == 'users' ? <AllUsersComponent />
+          url === 'menu' ? <MenuComponent />
+            : url === 'admin' ? <UserComponent />
+              : url === 'users' ? <AllUsersComponent />
                 : <UserComponent />
 
         }

@@ -14,7 +14,6 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
 const user = cookies.get('role')
-console.log(user == 'FOOD_ATTENDANT', "userrrrrrrrrr")
 const Routes = () => (
   <BrowserRouter>
     <Switch>
