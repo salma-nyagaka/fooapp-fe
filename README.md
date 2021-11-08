@@ -4,6 +4,8 @@ A Food Ordering web application.
 ### Description
 A web application that allowes admin to create users and menus, food attendant to update order status and users to make orders
 
+### Link to the web app 
+https://fastfood-1e5be.web.app/
 ### Available Scripts
 
 In the project directory, you can run:
