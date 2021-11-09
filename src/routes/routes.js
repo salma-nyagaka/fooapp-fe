@@ -11,25 +11,26 @@ import AllUsersComponent from '../components/allUsersComponent'
 import AdminMenuComponent from '../components/viewMenusComponent.js'
 import FoodComponent from '../components/foodAttendantComponent'
 import Cookies from 'universal-cookie';
+import PrivateRoute from './PrivateRoute'
 
 const cookies = new Cookies()
 const user = cookies.get('role')
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/menu/items' component={LandingComponent} />
       <Route exact path='/' component={LoginComponent} />
-      <Route exact path='/orders' component={OrdersComponent} />
-      <Route exact path='/menu' component={MenuComponent} />
-      <Route exact path='/attendant' component={FoodComponent} />
+      <PrivateRoute exact path='/menu/items' component={LandingComponent} />
+      <PrivateRoute exact path='/orders' component={OrdersComponent} />
+      <PrivateRoute exact path='/menu' component={MenuComponent} />
+      <PrivateRoute exact path='/attendant' component={FoodComponent} />
+      <PrivateRoute exact path='/admin' component={adminComponent} />
+      <PrivateRoute exact path='/users' component={AllUsersComponent} />
+      <PrivateRoute exact path='/user' component={UserComponent} />
+      <PrivateRoute exact path='/admin/menu' component={AdminMenuComponent} />
       {/* {user === "FOOD_ATTENDANT" ? (
         <Route exact path='/attendant' component={FoodComponent} />) : (
         <Redirect to="/" />
       )} */}
-      <Route exact path='/admin' component={adminComponent} />
-      <Route exact path='/users' component={AllUsersComponent} />
-      <Route exact path='/user' component={UserComponent} />
-      <Route exact path='/admin/menu' component={AdminMenuComponent} />
 
 
 

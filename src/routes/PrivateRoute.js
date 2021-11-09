@@ -4,17 +4,21 @@ import Cookies from 'universal-cookie';
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
     const cookies = new Cookies();
-    return ( <
-        Route {...rest }
-        render = {
-            (routeProps) =>
-            <
-            Redirect to = { "/" }
-            />
+    const token = cookies.get('token')
 
+    return (
+      <Route
+        {...rest}
+        render={(routeProps) =>
+            token ? (
+            <RouteComponent {...routeProps} />
+          ) : (
+            <Redirect to={"/"} />
+          )
         }
-        />
+      />
     );
-};
-
-export default PrivateRoute;
+  };
+  
+  export default PrivateRoute;
+  
