@@ -10,8 +10,11 @@ import Navbar from "../common/navbar";
 const LandingComponent = () => {
     const [dataResponse, setDataResponse] = useState([])
     const [errorResponse, setErrorResponse] = useState([])
+    const [successResponse, setSuccessResponse] = useState([])
     const cookies = new Cookies();
     const token = cookies.get('token')
+    const user_id = cookies.get('id')
+
     const headers = {
         Authorization: `Bearer ${token}`,
     };
@@ -34,13 +37,14 @@ const LandingComponent = () => {
     const makeOrder = async (id) => {
         const data = {
             order: id,
-            user: "16"
+            user: user_id
         }
 
         try {
-            await axios.post(`https://sapplication.link/order/`, data, {
+            const res = await axios.post(`https://sapplication.link/order/`, data, {
                 headers: headers
             });
+            setSuccessResponse(res.data.message)
         }
         catch (error) {
             setErrorResponse('Something went wrong, try again later')
@@ -75,7 +79,7 @@ const LandingComponent = () => {
 
                         <div class="row">
                         <h3 class="error-response" id="success-response">{errorResponse ? `${errorResponse}` : ''}</h3>
-
+                        <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3>
                             <div class="col-sm-6">
                                 {items.currentData().map((data) => {
                                     return (
