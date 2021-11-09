@@ -19,7 +19,7 @@ const AdminMenuComponent = () => {
 
     const getMenuItems = async () => {
         try {
-            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items', {
+            const res = await axios.get('https://sapplication.link/menu/items', {
                 headers: headers
             });
             setDataResponse(res.data.data)
@@ -35,7 +35,7 @@ const AdminMenuComponent = () => {
     // Delete a user
     const onDelete = async (id) => {
         try {
-            await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items/${id}`, {
+            await axios.delete(`https://sapplication.link/menu/items/${id}`, {
                 headers: headers
             });
             getMenuItems()
