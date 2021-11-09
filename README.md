@@ -30,19 +30,26 @@ A food ordering web  application that allows
 - View order history
 ```
 
-### Available Scripts
-In the project directory, you can run:
+### Project setup
+-   Clone the foodapp repo and cd into it:
 
-#### `npm install`
+    ```
+    git clone https://github.com/salma-nyagaka/foodapp-fe.git
+    ```
 
-- Installs the dependancies needed for the project
+- Run the following command  to install the dependancies needed for the project
 
-#### `npm start`
+    ```
+    npm install
+    ```
 
-- Runs the app in the development mode.\
-- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Run the following command  to start the server
 
-#### Instructions 
+    ```
+    npm start
+    ```
+
+#### Instructions for logging in
 
 - Log in as an admin to add users, get all users, get a single user, create a menu, 
 update a menu item, get all users
