@@ -3,28 +3,30 @@ A Food Ordering web application.
 
 ### Description
 A food ordering web  application that allows
-    ###### An admin to
-
-    ```
-    - Create Users
-    - Assign roles to users
-    - Create food menus
-    - View all orders made
-    - View all users
-    ```
-    ###### A food attendant to
     
-    ```
-    - Get all pending orders and update an order status
-    ```
+###### An admin to
 
-    ###### A norma user to
+```
+- Create Users
+- Assign roles to users
+- Create food menus
+- View all orders made
+- View all users
+```
 
-    ```
-    - Fetch all menu items
-    - Create an order
-    - View order history
-    ```
+###### A food attendant to
+
+```
+- Get all pending orders and update an order status
+```
+
+###### A normaL user to
+
+```
+- Fetch all menu items
+- Create an order
+- View order history
+```
 
 ### Link to the web app 
 https://develop.d37lta4ehey90q.amplifyapp.com/
