@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
 import Cookies from 'universal-cookie';
+import { useHistory } from 'react-router-dom'
 
 import usePagination from "../common/pagination";
 import "../assets/styles/table.css";
@@ -19,6 +20,12 @@ const AllUsersComponent = () => {
         Authorization: `Bearer ${token}`,
     };
 
+    const role = cookies.get('role')
+    let history = useHistory();
+  
+    if (role != 'ADMIN'){
+        history.push('/')  
+    }
 
     const getUsers = async () => {
         try {

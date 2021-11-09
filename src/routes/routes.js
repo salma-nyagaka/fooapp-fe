@@ -4,7 +4,7 @@ import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
 import LandingComponent from '../components/landingComponent'
 import LoginComponent from '../components/loginComponent'
 import OrdersComponent from '../components/ordersComponent'
-import adminComponent from '../components/adminComponent'
+import AdminComponent from '../components/adminComponent'
 import MenuComponent from '../components/menuComponent'
 import UserComponent from '../components/userComponent'
 import AllUsersComponent from '../components/allUsersComponent'
@@ -23,7 +23,7 @@ const Routes = () => (
       <PrivateRoute exact path='/orders' component={OrdersComponent} />
       <PrivateRoute exact path='/menu' component={MenuComponent} />
       <PrivateRoute exact path='/attendant' component={FoodComponent} />
-      <PrivateRoute exact path='/admin' component={adminComponent} />
+      <PrivateRoute exact path='/admin' component={AdminComponent} />
       <PrivateRoute exact path='/users' component={AllUsersComponent} />
       <PrivateRoute exact path='/user' component={UserComponent} />
       <PrivateRoute exact path='/admin/menu' component={AdminMenuComponent} />
