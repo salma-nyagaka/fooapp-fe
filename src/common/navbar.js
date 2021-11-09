@@ -1,7 +1,19 @@
 import React from "react";
+import Cookies from 'universal-cookie';
+import { useHistory } from "react-router-dom";
+
 import "../assets/styles/navbar.css";
 
 const Navbar = () => {
+  const cookies = new Cookies();
+  const role = cookies.get('role')
+  let history = useHistory();
+  const logout = () => {
+    cookies.remove('role');
+    cookies.remove('token');
+
+  history.push('/')
+  }
     return (
         <div class="nav">
         <input type="checkbox" id="nav-check"/>
@@ -19,9 +31,9 @@ const Navbar = () => {
         </div>
         
         <div class="nav-links">
-          <a href="/" >Menu</a>
+          <a href="/menu/items" >Menu</a>
           <a href="/orders" >Past Orders</a>
-          <a href="/login" id='sign-in-btn'>Sign In</a>
+          <a href="/" id='sign-in-btn' onClick={() => logout()}>Logout</a>
         </div>
       </div>
     );

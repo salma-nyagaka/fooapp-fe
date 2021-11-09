@@ -17,8 +17,8 @@ const user = cookies.get('role')
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={LandingComponent} />
-      <Route exact path='/login' component={LoginComponent} />
+      <Route exact path='/menu/items' component={LandingComponent} />
+      <Route exact path='/' component={LoginComponent} />
       <Route exact path='/orders' component={OrdersComponent} />
       <Route exact path='/menu' component={MenuComponent} />
       <Route exact path='/attendant' component={FoodComponent} />
@@ -26,24 +26,11 @@ const Routes = () => (
         <Route exact path='/attendant' component={FoodComponent} />) : (
         <Redirect to="/" />
       )} */}
-      {user === "ADMIN" ? (
-        <Route exact path='/admin' component={adminComponent} />) : (
-        <Redirect to="/" />
-      )}
-      {user === "ADMIN" ? (
-        <Route exact path='/users' component={AllUsersComponent} />) : (
-        <Redirect to="/" />
-      )}
-      {user === "ADMIN" ? (
-        <Route exact path='/user' component={UserComponent} />
-      ) : (
-        <Redirect to="/" />
-      )}
-      {user === "ADMIN" ? (
-        <Route exact path='/admin/menu' component={AdminMenuComponent} />) : (
-        <Redirect to="/" />
-      )}
-  
+      <Route exact path='/admin' component={adminComponent} />
+      <Route exact path='/users' component={AllUsersComponent} />
+      <Route exact path='/user' component={UserComponent} />
+      <Route exact path='/admin/menu' component={AdminMenuComponent} />
+
 
 
     </Switch>
