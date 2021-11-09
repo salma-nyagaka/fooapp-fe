@@ -23,7 +23,7 @@ const FoodComponent = () => {
 
     const getOrders = async () => {
         try {
-            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/all', {
+            const res = await axios.get('https://sapplication.link/order/all', {
                 headers: headers,
                 params: params
             });
@@ -44,7 +44,7 @@ const FoodComponent = () => {
             status: status
         }
         try {
-            await axios.put(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/${id}`, {}, {
+            await axios.put(`https://sapplication.link/order/${id}`, {}, {
                 headers: headers,
                 params: params
             });

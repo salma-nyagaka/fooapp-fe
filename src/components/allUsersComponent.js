@@ -22,7 +22,7 @@ const AllUsersComponent = () => {
 
     const getUsers = async () => {
         try {
-            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details', {
+            const res = await axios.get('https://sapplication.link/users/details', {
                 headers: headers
             });
             setDataResponse(res.data.data)
@@ -40,7 +40,7 @@ const AllUsersComponent = () => {
     // Delete a user
     const onDelete = async (id) => {
         try {
-            await axios.delete(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/details/${id}`, {
+            await axios.delete(`https://sapplication.link/users/details/${id}`, {
                 headers: headers
             });
             getUsers()

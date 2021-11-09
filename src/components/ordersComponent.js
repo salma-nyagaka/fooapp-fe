@@ -24,7 +24,7 @@ const OrdersComponent = () => {
 
     const getOrders = async () => {
         try {
-            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/user', {
+            const res = await axios.get('https://sapplication.link/order/user', {
                 headers: headers,
                 params: params
             });

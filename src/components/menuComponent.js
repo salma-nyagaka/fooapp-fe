@@ -28,7 +28,7 @@ const MenuComponent = () => {
         };
 
         try {
-            const res = await axios.post('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/', data, {
+            const res = await axios.post('https://sapplication.link/menu/', data, {
                 headers: headers
             });
             setSuccessResponse(res.data.message)

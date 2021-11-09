@@ -37,7 +37,7 @@ const LandingComponent = () => {
         }
 
         try {
-            await axios.post(`http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/order/`, data, {
+            await axios.post(`https://sapplication.link/order/`, data, {
                 headers: headers
             });
         }

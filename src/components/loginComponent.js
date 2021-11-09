@@ -24,7 +24,7 @@ const LoginComponent = () => {
         }
 
         try {
-            const res = await axios.post('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/users/login', data);
+            const res = await axios.post('https://sapplication.link/users/login', data);
             setSuccessResponse(res.data.message)
             const role = res.data.data.role
             const token = res.data.data.token
