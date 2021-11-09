@@ -12,3 +12,11 @@
     font-weight: bold;
     text-align: center;
 }
+
+.error-response {
+    color: #cc0000;
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+}

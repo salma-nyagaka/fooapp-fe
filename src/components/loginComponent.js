@@ -30,18 +30,26 @@ const LoginComponent = () => {
             const token = res.data.data.token
             cookies.set('token', token)
             cookies.set('role', role)
-            var signinBtn = document.getElementById("sign-in-btn");
-            document.getElementById("sign-in-btn").id = 'logout-btn'
-            signinBtn.innerHTML = 'LOGOUT'
+            console.log(cookies.get('token'), "llllllllllllllllllllllll")
+            // var signinBtn = document.getElementById("sign-in-btn");
+            // document.getElementById("sign-in-btn").id = 'logout-btn'
+            // signinBtn.innerHTML = 'LOGOUT'
+            console.log(token, "roleeeeeeeeeeeeeee")
             if (role === 'ADMIN')
-                history.push('/admin')
+                setTimeout(() => {
+                    history.push('/admin')
+                }, 1200);
             else if (role === 'FOOD_ATTENDANT')
-                history.push('/attendant')
+                setTimeout(() => {
+                    history.push('/attendant')
+                }, 1200);
             else if (role === 'NORMAL_USER')
-                history.push('/')
+                setTimeout(() => {
+                    history.push('/menu/items')
+                }, 1200);
 
         } catch (error) {
-            setErrors(error.response.data.error.non_field_errors)
+            setErrors(error.response)
 
         }
 
@@ -57,10 +65,10 @@ const LoginComponent = () => {
     }
     return (
         <div className="login">
-            <Navbar />
+            {/* <Navbar /> */}
             <h1>Login</h1>
             <form onSubmit={handleSubmit} id='form'>
-                <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3>
+                <h3 class="success-response" id="success-response">{successResponse ? `${successResponse}...` : ''}</h3>
                 <h3 class="errors" id="errors">{error ? error : ''}</h3>
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" id="email" onClick={inboxOnClick} required />
