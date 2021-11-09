@@ -3,11 +3,12 @@
     background: #44CC44;
     padding: 3px 3px;
     margin: 3px;
+    display: inline-block;
 }
 
 .accept:hover {
     color: #6FE76F;
-    border: 1px solid #6FE76F;
+    /* border: 1px solid #6FE76F; */
     background-color: white;
     /* box-shadow: 0 1px 0 0 #7ED37E; */
 }
@@ -22,10 +23,11 @@
     margin: 3px;
     margin: 3px;
     padding: 3px 3px;
+    display: inline-block;
 }
 
 .deny:hover {
     color: rgb(255, 147, 128);
-    border: 1px solid rgb(255, 147, 128);
+    /* border: 1px solid rgb(255, 147, 128); */
     background-color: white;
 }

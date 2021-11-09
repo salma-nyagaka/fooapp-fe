@@ -40,7 +40,7 @@ const OrdersComponent = () => {
 
 
     // Handle change...
-    const PER_PAGE = 10;
+    const PER_PAGE = 6;
     const count = Math.ceil(dataResponse.length / PER_PAGE);
     const items = usePagination(dataResponse, PER_PAGE);
     const handleChange = (_e, p) => {

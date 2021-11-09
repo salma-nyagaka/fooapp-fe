@@ -28,7 +28,6 @@ const FoodComponent = () => {
                 params: params
             });
             setDataResponse(res.data.data)
-
         } catch (error) {
             setDataResponse([])
         }
@@ -58,7 +57,7 @@ const FoodComponent = () => {
 
 
     // Handle change...
-    const PER_PAGE = 10;
+    const PER_PAGE = 4;
     const count = Math.ceil(dataResponse.length / PER_PAGE);
     const items = usePagination(dataResponse, PER_PAGE);
     const handleChange = (_e, p) => {
@@ -93,8 +92,8 @@ const FoodComponent = () => {
                                             <td data-label="DESCRIPTION">${data.order.description}</td>
                                             <td data-label="PRICE">{data.order.price}</td>
                                             <td data-label="Period"><center>
-                                                <a href="#" class="accept" onClick={() => updateOrderStatus(data.id, "accepted")}>ACCEPT <span class="fa fa-check"></span></a>
-                                                <a href="#" class="deny" onClick={() => updateOrderStatus(data.id, "declined")}>DENY <span class="fa fa-close"></span></a>
+                                                <li class="accept" onClick={() => updateOrderStatus(data.id, "accepted")}>ACCEPT </li>
+                                                <li class="deny" onClick={() => updateOrderStatus(data.id, "declined")}>CANCEL</li>
                                             </center>
                                             </td>
                                         </tr>

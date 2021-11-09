@@ -20,7 +20,7 @@ const SideBar = () => {
       <nav>
         {role ==='FOOD_ATTENDANT' ? <ul>
           <li><a href="/admin/menu"><i class="fa fa-list"></i>View Orders</a></li>
-          <li><a href="#" id=''><i class="fa fa-sign-out"></i>Logout</a></li>
+          <li><a href="/" id=''><i class="fa fa-sign-out"></i>Logout</a></li>
         </ul> :
           <ul>
             <li><a href="/admin"><i class="fa fa-user"></i>Create User</a></li>
@@ -28,7 +28,7 @@ const SideBar = () => {
             <li><a href="/users"><i class="fa fa-list" aria-hidden="true"></i>
               View Users</a></li>
             <li><a href="/admin/menu"><i class="fa fa-list"></i>View Menus</a></li>
-            <li><a href="#" id='' onClick={() => logout()}><i class="fa fa-sign-out"></i>Logout</a></li>
+            <li><a href="/" id='' onClick={() => logout()}><i class="fa fa-sign-out"></i>Logout</a></li>
           </ul>}
 
       </nav>

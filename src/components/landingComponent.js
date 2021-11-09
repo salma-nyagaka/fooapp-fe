@@ -47,6 +47,13 @@ const LandingComponent = () => {
                 headers: headers
             });
             setSuccessResponse(res.data.message)
+            setTimeout(() => {
+                getMenuItems()
+                var errors = document.getElementById(`${id}-errors`);
+                errors.innerHTML = ''
+                var success = document.getElementById('success-response')
+                success.innerHTML = ''
+            }, 1200);
         }
         catch (error) {
             setErrorResponse('Something went wrong, try again later')
@@ -82,8 +89,8 @@ const LandingComponent = () => {
                         </div>
 
                         <div class="row">
-                        <h3 class="error-response" id="success-response">{errorResponse ? `${errorResponse}` : ''}</h3>
-                        <h3 class="success-response" id="success-response">{successResponse ? successResponse : ''}</h3>
+                        <h3 class="error-response" id="error">{errorResponse ? `${errorResponse}` : ''}</h3>
+                        <h3 class="success-response" id="success">{successResponse ? successResponse : ''}</h3>
                             <div class="col-sm-6">
                                 {items.currentData().map((data) => {
                                     return (
