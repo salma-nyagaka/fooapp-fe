@@ -5,11 +5,13 @@ import usePagination from "../common/pagination";
 import Cookies from 'universal-cookie';
 
 import "../assets/styles/landingpage.css";
+import "../assets/styles/pagination.css";
 import Navbar from "../common/navbar";
 
 const LandingComponent = () => {
     const [dataResponse, setDataResponse] = useState([])
     const [errorResponse, setErrorResponse] = useState([])
+    const [page, setPage] = useState(1);
     const [successResponse, setSuccessResponse] = useState([])
     const cookies = new Cookies();
     const token = cookies.get('token')
@@ -53,18 +55,20 @@ const LandingComponent = () => {
 
     };
 
+
     // Handle change...
     const PER_PAGE = 10;
+    const count = Math.ceil(dataResponse.length / PER_PAGE);
     const items = usePagination(dataResponse, PER_PAGE);
-    // const handleChange = (_e, p) => {
-    //     items.jump(p);
-    // };
-
+    const handleChange = (_e, p) => {
+        setPage(p);
+        items.jump(p);
+    };
 
     return (
         <div className="banner">
             <Navbar />
-            <div class="container">
+            <div class="container" id="menu-page">
                 <section id="popular" class="module">
                     <div class="container">
 
@@ -99,6 +103,15 @@ const LandingComponent = () => {
                                         </div>
                                     )
                                 })}
+                                   <Pagination
+                            count={count}
+                            size="large"
+                            page={page}
+                            variant="outlined"
+                            shape="rounded"
+                            onChange={handleChange}
+                            className="pagination-button"
+                        />
                             </div>
                         </div>
                     </div>

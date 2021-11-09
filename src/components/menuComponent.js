@@ -27,7 +27,6 @@ const MenuComponent = () => {
         const headers = {
             Authorization: `Bearer ${token}`,
         };
-        console.log(headers, "token")
 
         try {
             const res = await axios.post('https://sapplication.link/menu/', data, {
@@ -49,11 +48,9 @@ const MenuComponent = () => {
         event.preventDefault()
         const id = event.target.id
         var errors = document.getElementById(`${id}-errors`);
-        console.log(errors, "idd")
         errors.innerHTML = ''
         var success = document.getElementById('success-response')
         success.innerHTML = ''
-        // errors.remove();
 
     }
     return (
