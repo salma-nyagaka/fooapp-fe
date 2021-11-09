@@ -28,13 +28,11 @@ const LoginComponent = () => {
             setSuccessResponse(res.data.message)
             const role = res.data.data.role
             const token = res.data.data.token
+            const id = res.data.data.id
             cookies.set('token', token)
             cookies.set('role', role)
-            console.log(cookies.get('token'), "llllllllllllllllllllllll")
-            // var signinBtn = document.getElementById("sign-in-btn");
-            // document.getElementById("sign-in-btn").id = 'logout-btn'
-            // signinBtn.innerHTML = 'LOGOUT'
-            console.log(token, "roleeeeeeeeeeeeeee")
+            cookies.set('id', id)
+
             if (role === 'ADMIN')
                 setTimeout(() => {
                     history.push('/admin')
