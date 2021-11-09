@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom'
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import Pagination from "@material-ui/lab/Pagination";
@@ -12,6 +13,9 @@ const FoodComponent = () => {
     const [dataResponse, setDataResponse] = useState([])
     const cookies = new Cookies();
     const token = cookies.get('token')
+    const role = cookies.get('role')
+    let history = useHistory();
+
     const [page, setPage] = useState(1);
     const headers = {
         Authorization: `Bearer ${token}`,
@@ -20,7 +24,8 @@ const FoodComponent = () => {
         'pending_orders': 'pending_orders'
     }
 
-
+    
+    
     const getOrders = async () => {
         try {
             const res = await axios.get('https://sapplication.link/order/all', {
@@ -32,9 +37,15 @@ const FoodComponent = () => {
             setDataResponse([])
         }
     };
+
     // Fetch all orders...
     useEffect(() => {
-        getOrders();
+        if (role != 'FOOD_ATTENDANT'){
+            history.push('/')  
+        }
+        else{
+            getOrders();
+        }
     });
 
     // Update order status
@@ -91,7 +102,7 @@ const FoodComponent = () => {
                                             <td data-label="FOOD NAME">{data.order.name}</td>
                                             <td data-label="DESCRIPTION">${data.order.description}</td>
                                             <td data-label="PRICE">{data.order.price}</td>
-                                            <td data-label="Period"><center>
+                                            <td data-label="ACTION"><center>
                                                 <li class="accept" onClick={() => updateOrderStatus(data.id, "accepted")}>ACCEPT </li>
                                                 <li class="deny" onClick={() => updateOrderStatus(data.id, "declined")}>CANCEL</li>
                                             </center>

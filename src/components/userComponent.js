@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from 'react-router-dom'
+import Cookies from 'universal-cookie';
 
 import "../assets/styles/userform.css";
 import "../assets/styles/responses.css";
@@ -13,6 +15,13 @@ const UserComponent = () => {
     const [roleerror, setRoleError] = useState()
     const [successResponse, setSuccessResponse] = useState()
 
+    const cookies = new Cookies();
+    const role = cookies.get('role')
+    let history = useHistory();
+  
+    if (role != 'ADMIN'){
+        history.push('/')  
+    }
     // Create a new user...
     const handleSubmit = async (event) => {
         event.preventDefault();
