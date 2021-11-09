@@ -9,6 +9,7 @@ const MenuComponent = () => {
 
     const [nameerror, setNameError] = useState()
     const [descriptionerror, setDescriptionError] = useState()
+    const [priceerror, setPriceError] = useState()
     const [successResponse, setSuccessResponse] = useState()
 
     // Create a new user...
@@ -26,6 +27,7 @@ const MenuComponent = () => {
         const headers = {
             Authorization: `Bearer ${token}`,
         };
+        console.log(headers, "token")
 
         try {
             const res = await axios.post('https://sapplication.link/menu/', data, {
@@ -36,6 +38,7 @@ const MenuComponent = () => {
         catch (error) {
             setNameError(error.response.data.error.name[0])
             setDescriptionError(error.response.data.error.description[0])
+            setPriceError(error.response.data.error.price[0])
 
         }
 
@@ -46,6 +49,7 @@ const MenuComponent = () => {
         event.preventDefault()
         const id = event.target.id
         var errors = document.getElementById(`${id}-errors`);
+        console.log(errors, "idd")
         errors.innerHTML = ''
         var success = document.getElementById('success-response')
         success.innerHTML = ''
@@ -64,6 +68,7 @@ const MenuComponent = () => {
                         <h3 class="errors" id="name-errors">{nameerror ? nameerror : ''}</h3>
                         <input type="text" placeholder="Enter Name" name="name" id="name" onClick={inboxOnClick} required />
                         <label for="price"><b>Price</b></label>
+                        <h3 class="errors" id="price-errors">{priceerror ? priceerror : ''}</h3>
                         <input type="number" placeholder="Enter Price" name="price" id="price" onClick={inboxOnClick} required />
                         <label for="description"><b>Description</b></label>
                         <h3 class="errors" id="description-errors">{descriptionerror ? descriptionerror : ''}</h3>

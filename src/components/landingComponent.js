@@ -9,6 +9,7 @@ import Navbar from "../common/navbar";
 
 const LandingComponent = () => {
     const [dataResponse, setDataResponse] = useState([])
+    const [errorResponse, setErrorResponse] = useState([])
     const cookies = new Cookies();
     const token = cookies.get('token')
     const headers = {
@@ -42,7 +43,7 @@ const LandingComponent = () => {
             });
         }
         catch (error) {
-            console.log(error)
+            setErrorResponse('Something went wrong, try again later')
         }
 
 
@@ -73,6 +74,7 @@ const LandingComponent = () => {
                         </div>
 
                         <div class="row">
+                        <h3 class="error-response" id="success-response">{errorResponse ? `${errorResponse}` : ''}</h3>
 
                             <div class="col-sm-6">
                                 {items.currentData().map((data) => {
