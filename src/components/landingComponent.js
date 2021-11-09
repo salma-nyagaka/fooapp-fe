@@ -17,7 +17,7 @@ const LandingComponent = () => {
 
     const getMenuItems = async () => {
         try {
-            const res = await axios.get('http://ec2-18-203-249-202.eu-west-1.compute.amazonaws.com/menu/items');
+            const res = await axios.get('https://sapplication.link/menu/items');
             setDataResponse(res.data.data)
 
         } catch (error) {
