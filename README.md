@@ -1,6 +1,8 @@
 ## Food app
 A Food Ordering web application.
 
+### Link to the web app 
+https://develop.d37lta4ehey90q.amplifyapp.com/
 ### Description
 A food ordering web  application that allows
     
@@ -20,16 +22,13 @@ A food ordering web  application that allows
 - Get all pending orders and update an order status
 ```
 
-###### A normaL user to
+###### A normal user to
 
 ```
 - Fetch all menu items
 - Create an order
 - View order history
 ```
-
-### Link to the web app 
-https://develop.d37lta4ehey90q.amplifyapp.com/
 
 ### Available Scripts
 In the project directory, you can run:
